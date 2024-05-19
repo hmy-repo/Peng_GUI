@@ -50,23 +50,10 @@
                 </attribute>
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
-                  <widget class="QScrollArea" name="scrollArea">
-                   <property name="frameShape">
-                    <enum>QFrame::Panel</enum>
+                  <widget class="QLabel" name="labelOrigImg">
+                   <property name="text">
+                    <string/>
                    </property>
-                   <property name="widgetResizable">
-                    <bool>true</bool>
-                   </property>
-                   <widget class="QWidget" name="scrollAreaWidgetContents">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>692</width>
-                      <height>317</height>
-                     </rect>
-                    </property>
-                   </widget>
                   </widget>
                  </item>
                 </layout>
@@ -88,7 +75,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QListView" name="listView"/>
+                <widget class="QTableView" name="tabviewOrig"/>
                </item>
               </layout>
              </item>
@@ -106,39 +93,18 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_12" stretch="5,0">
              <item>
-              <widget class="QWidget" name="widget" native="true"/>
+              <widget class="QWidget" name="widgetChart" native="true"/>
              </item>
              <item>
               <layout class="QGridLayout" name="gridLayout">
-               <item row="0" column="0">
-                <widget class="QPushButton" name="pushButton_3">
+               <item row="1" column="4">
+                <widget class="QPushButton" name="pushButton">
                  <property name="text">
-                  <string>Import Data</string>
+                  <string>Batch Detect</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="pushButton_5">
-                 <property name="text">
-                  <string>Load Original Img</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QPushButton" name="pushButton_2">
-                 <property name="text">
-                  <string>Single Detect</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QPushButton" name="pushButton_7">
-                 <property name="text">
-                  <string>Export PDF</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
+               <item row="1" column="2">
                 <widget class="QPushButton" name="pushButton_4">
                  <property name="text">
                   <string>Plot Figure</string>
@@ -146,23 +112,30 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QPushButton" name="pushButton_6">
+                <widget class="QPushButton" name="pushButton_5">
                  <property name="text">
-                  <string>Load Original Imgs</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QPushButton" name="pushButton">
-                 <property name="text">
-                  <string>Batch Detect</string>
+                  <string>Load Img</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="3">
+                <widget class="QPushButton" name="pushButton_7">
+                 <property name="text">
+                  <string>Export PDF</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
                 <widget class="QPushButton" name="pushButton_8">
                  <property name="text">
                   <string>Save Results</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="pushButton_3">
+                 <property name="text">
+                  <string>Import Data</string>
                  </property>
                 </widget>
                </item>
@@ -200,12 +173,9 @@
                   </attribute>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QGraphicsView" name="graphicsView">
-                     <property name="frameShape">
-                      <enum>QFrame::Panel</enum>
-                     </property>
-                     <property name="lineWidth">
-                      <number>1</number>
+                    <widget class="QLabel" name="labelRecgImg">
+                     <property name="text">
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -299,14 +269,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QListView" name="Res01_Num08_Ser1jpg">
-                 <property name="frameShape">
-                  <enum>QFrame::Panel</enum>
-                 </property>
-                 <property name="selectionRectVisible">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <widget class="QTableView" name="tabviewRecg"/>
                </item>
               </layout>
              </item>
