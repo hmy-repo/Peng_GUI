@@ -225,10 +225,6 @@ class Ui_detectWindow(object):
         self.menuToolBar.setIconSize(QSize(30, 30))
         self.menuToolBar.setFloatable(True)
         detectWindow.addToolBar(Qt.TopToolBarArea, self.menuToolBar)
-        self.navigationToolBar = QToolBar(detectWindow)
-        self.navigationToolBar.setObjectName(u"navigationToolBar")
-        detectWindow.addToolBar(Qt.TopToolBarArea, self.navigationToolBar)
-        detectWindow.insertToolBarBreak(self.navigationToolBar)
         self.dockWidget = QDockWidget(detectWindow)
         self.dockWidget.setObjectName(u"dockWidget")
         self.dockWidgetContents = QWidget()
@@ -297,8 +293,6 @@ class Ui_detectWindow(object):
         self.menuToolBar.addAction(self.actionZoom_Out)
         self.menuToolBar.addAction(self.actionZoom_Fit_Best)
         self.menuToolBar.addSeparator()
-        self.navigationToolBar.addAction(self.actionGoPrevious)
-        self.navigationToolBar.addAction(self.actionGoNext)
 
         self.retranslateUi(detectWindow)
 
@@ -381,6 +375,5 @@ class Ui_detectWindow(object):
         self.menuWindow.setTitle(QCoreApplication.translate("detectWindow", u"Window", None))
         self.menuHelp.setTitle(QCoreApplication.translate("detectWindow", u"Help", None))
         self.menuToolBar.setWindowTitle(QCoreApplication.translate("detectWindow", u"toolBar", None))
-        self.navigationToolBar.setWindowTitle(QCoreApplication.translate("detectWindow", u"toolBar_2", None))
     # retranslateUi
 
