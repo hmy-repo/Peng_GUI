@@ -84,7 +84,7 @@ class DetectMain(QWidget):
 #        self.ui.tabviewOrig.setHorizontalHeader(QHeaderView())
         self.ui.tabviewOrig.setColumnWidth(0, self.ui.tabviewOrig.width()/2+16)
         self.ui.tabviewOrig.setColumnWidth(1, self.ui.tabviewOrig.width()/2+16)
-        self.ui.tabviewOrig.setColumnWidth(3, self.ui.tabviewOrig.width()/2+16)
+        self.ui.tabviewOrig.setColumnWidth(2, self.ui.tabviewOrig.width()/2+16)
 
 
 
