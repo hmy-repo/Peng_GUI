@@ -16,8 +16,13 @@
     <height>638</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Chemistry Detection</string>
+   <string>HT-Detector</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../img.qrc">

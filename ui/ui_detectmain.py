@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QHeaderView, QLCDNumber, QLabel,
-    QProgressBar, QPushButton, QSizePolicy, QTabWidget,
-    QTableView, QVBoxLayout, QWidget)
+    QLayout, QProgressBar, QPushButton, QSizePolicy,
+    QTabWidget, QTableView, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -39,6 +39,7 @@ class Ui_Form(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.cameraMainlVLayout = QVBoxLayout()
         self.cameraMainlVLayout.setObjectName(u"cameraMainlVLayout")
+        self.cameraMainlVLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
 
         self.horizontalLayout_9.addLayout(self.cameraMainlVLayout)
 
@@ -50,7 +51,9 @@ class Ui_Form(object):
         self.horizontalLayout_7 = QHBoxLayout(self.groupBox_4)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setSpacing(3)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setSizeConstraint(QLayout.SetNoConstraint)
         self.tabWidget_2 = QTabWidget(self.groupBox_4)
         self.tabWidget_2.setObjectName(u"tabWidget_2")
         font = QFont()
@@ -63,6 +66,11 @@ class Ui_Form(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.labelOrigImg = QLabel(self.tab_4)
         self.labelOrigImg.setObjectName(u"labelOrigImg")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.labelOrigImg.sizePolicy().hasHeightForWidth())
+        self.labelOrigImg.setSizePolicy(sizePolicy)
 
         self.horizontalLayout_5.addWidget(self.labelOrigImg)
 
@@ -88,7 +96,7 @@ class Ui_Form(object):
 
         self.horizontalLayout_6.addLayout(self.verticalLayout_8)
 
-        self.horizontalLayout_6.setStretch(0, 5)
+        self.horizontalLayout_6.setStretch(0, 3)
         self.horizontalLayout_6.setStretch(1, 1)
 
         self.horizontalLayout_7.addLayout(self.horizontalLayout_6)
@@ -104,6 +112,8 @@ class Ui_Form(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.widgetChart = QWidget(self.groupBox_6)
         self.widgetChart.setObjectName(u"widgetChart")
+        sizePolicy.setHeightForWidth(self.widgetChart.sizePolicy().hasHeightForWidth())
+        self.widgetChart.setSizePolicy(sizePolicy)
 
         self.verticalLayout_12.addWidget(self.widgetChart)
 
@@ -154,6 +164,7 @@ class Ui_Form(object):
         self.verticalLayout_11 = QVBoxLayout(self.groupBox_3)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(3)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout_10 = QVBoxLayout()
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
@@ -168,6 +179,8 @@ class Ui_Form(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.labelRecgImg = QLabel(self.tab_3)
         self.labelRecgImg.setObjectName(u"labelRecgImg")
+        sizePolicy.setHeightForWidth(self.labelRecgImg.sizePolicy().hasHeightForWidth())
+        self.labelRecgImg.setSizePolicy(sizePolicy)
 
         self.horizontalLayout_3.addWidget(self.labelRecgImg)
 
@@ -209,7 +222,7 @@ class Ui_Form(object):
         self.lcdNumber.setObjectName(u"lcdNumber")
         self.lcdNumber.setAcceptDrops(False)
         self.lcdNumber.setFrameShape(QFrame.Panel)
-        self.lcdNumber.setProperty("intValue", 89)
+        self.lcdNumber.setProperty("intValue", 335)
 
         self.horizontalLayout_2.addWidget(self.lcdNumber)
 
@@ -235,7 +248,7 @@ class Ui_Form(object):
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_9)
 
-        self.horizontalLayout_4.setStretch(0, 5)
+        self.horizontalLayout_4.setStretch(0, 3)
         self.horizontalLayout_4.setStretch(1, 1)
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_4)
@@ -243,6 +256,10 @@ class Ui_Form(object):
 
         self.gridLayout_3.addWidget(self.groupBox_3, 1, 1, 1, 1)
 
+        self.gridLayout_3.setRowStretch(0, 1)
+        self.gridLayout_3.setRowStretch(1, 1)
+        self.gridLayout_3.setColumnStretch(0, 1)
+        self.gridLayout_3.setColumnStretch(1, 1)
 
         self.verticalLayout_13.addLayout(self.gridLayout_3)
 

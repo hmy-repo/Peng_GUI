@@ -51,40 +51,45 @@ class DetectMain(QWidget):
         self.layout.addWidget(self.canvas)
 #        self.layout.addWidget(self.toolbar)
 
-        self.origImg ='./imgs/origImg.jpg'
-        self.recgImg ='./imgs/recgImg.jpg'
 
-        self.ui.labelOrigImg.setPixmap(QPixmap(self.origImg).scaled(self.ui.labelOrigImg.width(), self.ui.labelOrigImg.height(), Qt.KeepAspectRatio))
-        self.ui.labelRecgImg.setPixmap(QPixmap(self.recgImg).scaled(self.ui.labelRecgImg.width(), self.ui.labelRecgImg.height(), Qt.KeepAspectRatio))
 
 
         # tableview for the linear img, the concentration and RGB are known, to get the chart
         num = [1, 2, 3, 4, 5, 6, 7]
-        x = [1, 10, 30, 50, 80, 100, 120]
-        y = [156, 144, 126, 103, 73, 53, 29]
+        con = [1, 10, 30, 50, 80, 100, 120]
+        blue = [156, 146, 126, 99, 71, 55, 34]
+        green = [107, 102, 89, 68, 47, 34, 17]
+        red = [75, 71, 61, 46, 30, 22, 12]
+        cols = 5
         con_rgb_list = []
-        for i in range(len(x)):
+        for i in range(len(con)):
             con_rgb_list.append(str(num[i]))
-            con_rgb_list.append(str(x[i]))
-            con_rgb_list.append(str(y[i]))
+            con_rgb_list.append(str(con[i]))
+            con_rgb_list.append(str(blue[i]))
+            con_rgb_list.append(str(green[i]))
+            con_rgb_list.append(str(red[i]))
         model = QStandardItemModel()
-        model.setColumnCount(3)
-        for row in range(len(x)):
-            for col in range(3):
-                index = row*3+col
+        model.setColumnCount(cols)
+        for row in range(len(con)):
+            for col in range(cols):
+                index = row*cols+col
                 item = QStandardItem(con_rgb_list[index])
                 model.setItem(row, col, item)
 
         model.setHeaderData(0, Qt.Horizontal, "No.")
         model.setHeaderData(1, Qt.Horizontal, "Con.")
         model.setHeaderData(2, Qt.Horizontal, "Blue")
+        model.setHeaderData(3, Qt.Horizontal, "Green")
+        model.setHeaderData(4, Qt.Horizontal, "Red")
 
         self.ui.tabviewOrig.setModel(model)
         self.ui.tabviewOrig.verticalHeader().hide()
 #        self.ui.tabviewOrig.setHorizontalHeader(QHeaderView())
-        self.ui.tabviewOrig.setColumnWidth(0, self.ui.tabviewOrig.width()/2+16)
-        self.ui.tabviewOrig.setColumnWidth(1, self.ui.tabviewOrig.width()/2+16)
-        self.ui.tabviewOrig.setColumnWidth(2, self.ui.tabviewOrig.width()/2+16)
+        self.ui.tabviewOrig.setColumnWidth(0, self.ui.tabviewOrig.width()/2)#+16)
+        self.ui.tabviewOrig.setColumnWidth(1, self.ui.tabviewOrig.width()/2)#+16)
+        self.ui.tabviewOrig.setColumnWidth(2, self.ui.tabviewOrig.width()/2)#+16)
+        self.ui.tabviewOrig.setColumnWidth(3, self.ui.tabviewOrig.width()/2)#+16)
+        self.ui.tabviewOrig.setColumnWidth(4, self.ui.tabviewOrig.width()/2)#+16)
 
 
 
@@ -96,17 +101,17 @@ class DetectMain(QWidget):
                 }
 
         x = [1, 10, 30, 50, 80, 100, 120]
-        y = [156, 144, 126, 103, 73, 53, 29]
+        y = [156, 146, 126, 99, 71, 55, 34]
         slope, intercept, r, p, std_err = stats.linregress(x, y)
         def myfunc(x):
             return slope*x+intercept
         mymodel = list(map(myfunc, x))
 
-        text = "y = {:.2f}*x+{:.2f}".format(slope, intercept)
+        text = "y = {:.4f}*x+{:.2f}".format(slope, intercept)
         print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
-        rgb_B = [145, 111, 93, 50, 143, 114, 92]
+        rgb_B = [144, 109, 94, 49, 143, 111, 93, 50]
         con = []
         for item_B in rgb_B:
             con_temp = (item_B - intercept)/slope
@@ -115,7 +120,7 @@ class DetectMain(QWidget):
 #        plt.plot(x, y, 'k')
         plt.title('Linear Regression and DL-based HT-Detection', fontdict=font)
 
-        plt.text(71, 143, "y = {:.2f} * x+{:.2f}".format(slope, intercept),
+        plt.text(71, 143, "y = {:.4f} * x+{:.2f}".format(slope, intercept),
                 backgroundcolor='#069AF3', fontsize=13,
                 fontstyle='italic', fontfamily='times new roman',
                 color=(1, 1, 1, 1))
@@ -137,63 +142,50 @@ class DetectMain(QWidget):
 
 
         # tableview for the recognized img, the concentration and RGB are NOT known
-        num = [1, 2, 3, 4, 5, 6, 7]
+        num = [1, 2, 3, 4, 5, 6, 7, 8]
+        rgb_G = [94, 71, 61, 28, 96, 73, 61, 27]
+        rgb_R = [68, 49, 43, 19, 69, 52, 43, 19]
         rgb_con_list = []
+        cols = 5
         for i in range(len(rgb_B)):
             rgb_con_list.append(str(num[i]))
-            rgb_con_list.append(str(round(rgb_B[i],1)))
             rgb_con_list.append(str(round(con[i],1)))
+            rgb_con_list.append(str(round(rgb_B[i],0)))
+            rgb_con_list.append(str(rgb_G[i]))
+            rgb_con_list.append(str(rgb_R[i]))
         model = QStandardItemModel()
-        model.setColumnCount(3)
+        model.setColumnCount(cols)
         for row in range(len(rgb_B)):
-            for col in range(3):
-                index = row*3+col
+            for col in range(cols):
+                index = row*cols+col
                 item = QStandardItem(rgb_con_list[index])
                 model.setItem(row, col, item)
 
         model.setHeaderData(0, Qt.Horizontal, "No.")
         model.setHeaderData(1, Qt.Horizontal, "Con.")
         model.setHeaderData(2, Qt.Horizontal, "Blue")
+        model.setHeaderData(3, Qt.Horizontal, "Green")
+        model.setHeaderData(4, Qt.Horizontal, "Red")
 
 
         self.ui.tabviewRecg.setModel(model)
         self.ui.tabviewRecg.verticalHeader().hide()
 #        self.ui.tabviewRecg.setHorizontalHeader(QHeaderView())
-        self.ui.tabviewRecg.setColumnWidth(0, self.ui.tabviewRecg.width()/2+16)
-        self.ui.tabviewRecg.setColumnWidth(1, self.ui.tabviewRecg.width()/2+16)
-        self.ui.tabviewRecg.setColumnWidth(2, self.ui.tabviewRecg.width()/2+16)
+        self.ui.tabviewRecg.setColumnWidth(0, self.ui.tabviewRecg.width()/2)#+16)
+        self.ui.tabviewRecg.setColumnWidth(1, self.ui.tabviewRecg.width()/2)#+16)
+        self.ui.tabviewRecg.setColumnWidth(2, self.ui.tabviewRecg.width()/2)#+16)
+        self.ui.tabviewRecg.setColumnWidth(3, self.ui.tabviewRecg.width()/2)#+16)
+        self.ui.tabviewRecg.setColumnWidth(4, self.ui.tabviewRecg.width()/2)#+16)
 
 
+        self.origImg ='./imgs/linearRegressionImg.jpg'
+        self.recgImg ='./imgs/detectionImg.jpg'
 
-#        num = [1, 2, 3, 4, 5, 6, 7]
-#        x = [1, 10, 30, 50, 80, 100, 120]
-#        y = [156, 144, 126, 103, 73, 53, 29]
-#        con_rgb_list = []
-#        for i in range(len(x)):
-#            con_rgb_list.append(str(num[i]))
-#            con_rgb_list.append(str(x[i]))
-#            con_rgb_list.append(str(y[i]))
-#        model = QStandardItemModel()
-#        model.setColumnCount(3)
-#        for row in range(len(x)):
-#            for col in range(3):
-#                index = row*3+col
-#                item = QStandardItem(con_rgb_list[index])
-#                model.setItem(row, col, item)
-
-#        model.setHeaderData(0, Qt.Horizontal, "No.")
-#        model.setHeaderData(1, Qt.Horizontal, "Con.")
-#        model.setHeaderData(2, Qt.Horizontal, "Blue")
-
-#        self.ui.tabviewOrig.setModel(model)
-#        self.ui.tabviewOrig.verticalHeader().hide()
-##        self.ui.tabviewOrig.setHorizontalHeader(QHeaderView())
-#        self.ui.tabviewOrig.setColumnWidth(0, self.ui.tabviewOrig.width()/2+16)
-#        self.ui.tabviewOrig.setColumnWidth(1, self.ui.tabviewOrig.width()/2+16)
-#        self.ui.tabviewOrig.setColumnWidth(3, self.ui.tabviewOrig.width()/2+16)
+        self.ui.labelOrigImg.setPixmap(QPixmap(self.origImg).scaled(self.ui.labelRecgImg.width(), self.ui.labelRecgImg.height(), Qt.KeepAspectRatio))
+        self.ui.labelRecgImg.setPixmap(QPixmap(self.recgImg).scaled(self.ui.labelRecgImg.width(), self.ui.labelRecgImg.height(), Qt.KeepAspectRatio))
 
 
-
+# self.ui.labelOrigImg.width(),
 
 #class Camera(QMainWindow):
 #class ImageSettings(QDialog):

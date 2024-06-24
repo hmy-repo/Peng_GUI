@@ -28,6 +28,9 @@ class Ui_detectWindow(object):
         detectWindow.setWindowModality(Qt.NonModal)
         detectWindow.setEnabled(True)
         detectWindow.resize(948, 638)
+        font = QFont()
+        font.setPointSize(9)
+        detectWindow.setFont(font)
         icon = QIcon()
         icon.addFile(u":/resource/10125_icons/shell32_35.ico", QSize(), QIcon.Normal, QIcon.Off)
         detectWindow.setWindowIcon(icon)
@@ -300,7 +303,7 @@ class Ui_detectWindow(object):
     # setupUi
 
     def retranslateUi(self, detectWindow):
-        detectWindow.setWindowTitle(QCoreApplication.translate("detectWindow", u"Chemistry Detection", None))
+        detectWindow.setWindowTitle(QCoreApplication.translate("detectWindow", u"HT-Detector", None))
         self.actionNew_Window.setText(QCoreApplication.translate("detectWindow", u"New Window", None))
 #if QT_CONFIG(shortcut)
         self.actionNew_Window.setShortcut(QCoreApplication.translate("detectWindow", u"Ctrl+N", None))

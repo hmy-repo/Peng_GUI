@@ -18,7 +18,7 @@
     <widget class="QWidget" name="detectmainWidget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_13">
       <item>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout_3" rowstretch="1,1" columnstretch="1,1">
         <item row="0" column="0">
          <widget class="QGroupBox" name="cameraMainGroupBox">
           <property name="title">
@@ -26,7 +26,11 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_9">
            <item>
-            <layout class="QVBoxLayout" name="cameraMainlVLayout"/>
+            <layout class="QVBoxLayout" name="cameraMainlVLayout">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetDefaultConstraint</enum>
+             </property>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -38,7 +42,13 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="5,1">
+            <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="3,1">
+             <property name="spacing">
+              <number>3</number>
+             </property>
+             <property name="sizeConstraint">
+              <enum>QLayout::SetNoConstraint</enum>
+             </property>
              <item>
               <widget class="QTabWidget" name="tabWidget_2">
                <property name="font">
@@ -57,6 +67,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
                   <widget class="QLabel" name="labelOrigImg">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -99,7 +115,14 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_12" stretch="5,0">
              <item>
-              <widget class="QWidget" name="widgetChart" native="true"/>
+              <widget class="QWidget" name="widgetChart" native="true">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
              </item>
              <item>
               <layout class="QGridLayout" name="gridLayout">
@@ -159,7 +182,10 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_11">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="5,1">
+            <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,1">
+             <property name="spacing">
+              <number>3</number>
+             </property>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_10">
                <item>
@@ -186,6 +212,12 @@
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
                     <widget class="QLabel" name="labelRecgImg">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
                      <property name="text">
                       <string/>
                      </property>
@@ -261,7 +293,7 @@
                     <enum>QFrame::Panel</enum>
                    </property>
                    <property name="intValue" stdset="0">
-                    <number>89</number>
+                    <number>335</number>
                    </property>
                   </widget>
                  </item>
