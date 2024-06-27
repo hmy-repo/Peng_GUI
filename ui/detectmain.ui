@@ -97,7 +97,14 @@
                 </widget>
                </item>
                <item>
-                <widget class="QTableView" name="tabviewOrig"/>
+                <widget class="QTableView" name="tabviewOrig">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -126,19 +133,18 @@
              </item>
              <item>
               <layout class="QGridLayout" name="gridLayout">
-               <item row="1" column="4">
-                <widget class="QPushButton" name="pushButton">
-                 <property name="text">
-                  <string>Detect</string>
+               <item row="1" column="0">
+                <spacer name="horizontalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QPushButton" name="pushButton_4">
-                 <property name="text">
-                  <string>Linear Regression</string>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
                  </property>
-                </widget>
+                </spacer>
                </item>
                <item row="1" column="1">
                 <widget class="QPushButton" name="pushButton_5">
@@ -147,26 +153,98 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QPushButton" name="pushButton_7">
-                 <property name="text">
-                  <string>Plot</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
+               <item row="1" column="9">
                 <widget class="QPushButton" name="pushButton_8">
                  <property name="text">
                   <string>Save</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QPushButton" name="pushButton_3">
+               <item row="1" column="2">
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="3">
+                <widget class="QPushButton" name="pushButton_4">
                  <property name="text">
-                  <string>photograph</string>
+                  <string>Linear Regression</string>
                  </property>
                 </widget>
+               </item>
+               <item row="1" column="8">
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="5">
+                <widget class="QPushButton" name="pushButton_7">
+                 <property name="text">
+                  <string>Plot</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="6">
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="7">
+                <widget class="QPushButton" name="pushButton">
+                 <property name="text">
+                  <string>Detect</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="10">
+                <spacer name="horizontalSpacer_6">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
               </layout>
              </item>
@@ -316,7 +394,14 @@
                 </widget>
                </item>
                <item>
-                <widget class="QTableView" name="tabviewRecg"/>
+                <widget class="QTableView" name="tabviewRecg">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>

@@ -103,12 +103,13 @@ class DetectMain(QWidget):
         x = [1, 10, 30, 50, 80, 100, 120]
         y = [156, 146, 126, 99, 71, 55, 34]
         slope, intercept, r, p, std_err = stats.linregress(x, y)
+        R2 = pow(r, 2)
         def myfunc(x):
             return slope*x+intercept
         mymodel = list(map(myfunc, x))
 
         text = "y = {:.4f}*x+{:.2f}".format(slope, intercept)
-        print('text=', text)
+#        print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
         rgb_B = [144, 109, 94, 49, 143, 111, 93, 50]
@@ -118,14 +119,14 @@ class DetectMain(QWidget):
             con.append(con_temp)
 
 #        plt.plot(x, y, 'k')
-        plt.title('Linear Regression and DL-based HT-Detection', fontdict=font)
+        plt.title('Linear Regression and DL-assisted HT-Detection', fontdict=font)
 
-        plt.text(71, 143, "y = {:.4f} * x+{:.2f}".format(slope, intercept),
+        plt.text(60, 143, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
                 backgroundcolor='#069AF3', fontsize=13,
                 fontstyle='italic', fontfamily='times new roman',
                 color=(1, 1, 1, 1))
 #        plt.text(61, 143, r'$\cos(2 \pi t) \exp(-t)$', fontdict=font)
-        plt.xlabel('Concentration', fontdict=font)
+        plt.xlabel('Concentration of Fe3+ (uM)', fontdict=font)
         plt.ylabel('Blue Value', fontdict=font)
 
 

@@ -18,7 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QHeaderView, QLCDNumber, QLabel,
     QLayout, QProgressBar, QPushButton, QSizePolicy,
-    QTabWidget, QTableView, QVBoxLayout, QWidget)
+    QSpacerItem, QTabWidget, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -90,6 +91,10 @@ class Ui_Form(object):
 
         self.tabviewOrig = QTableView(self.groupBox_4)
         self.tabviewOrig.setObjectName(u"tabviewOrig")
+        font2 = QFont()
+        font2.setPointSize(11)
+        font2.setBold(True)
+        self.tabviewOrig.setFont(font2)
 
         self.verticalLayout_8.addWidget(self.tabviewOrig)
 
@@ -119,35 +124,54 @@ class Ui_Form(object):
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.pushButton = QPushButton(self.groupBox_6)
-        self.pushButton.setObjectName(u"pushButton")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.pushButton, 1, 4, 1, 1)
-
-        self.pushButton_4 = QPushButton(self.groupBox_6)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-
-        self.gridLayout.addWidget(self.pushButton_4, 1, 2, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
 
         self.pushButton_5 = QPushButton(self.groupBox_6)
         self.pushButton_5.setObjectName(u"pushButton_5")
 
         self.gridLayout.addWidget(self.pushButton_5, 1, 1, 1, 1)
 
-        self.pushButton_7 = QPushButton(self.groupBox_6)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-
-        self.gridLayout.addWidget(self.pushButton_7, 1, 3, 1, 1)
-
         self.pushButton_8 = QPushButton(self.groupBox_6)
         self.pushButton_8.setObjectName(u"pushButton_8")
 
-        self.gridLayout.addWidget(self.pushButton_8, 1, 5, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_8, 1, 9, 1, 1)
 
-        self.pushButton_3 = QPushButton(self.groupBox_6)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.pushButton_3, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer, 1, 2, 1, 1)
+
+        self.pushButton_4 = QPushButton(self.groupBox_6)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+
+        self.gridLayout.addWidget(self.pushButton_4, 1, 3, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 1, 8, 1, 1)
+
+        self.pushButton_7 = QPushButton(self.groupBox_6)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+
+        self.gridLayout.addWidget(self.pushButton_7, 1, 5, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_2, 1, 4, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 1, 6, 1, 1)
+
+        self.pushButton = QPushButton(self.groupBox_6)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.gridLayout.addWidget(self.pushButton, 1, 7, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_6, 1, 10, 1, 1)
 
 
         self.verticalLayout_12.addLayout(self.gridLayout)
@@ -192,9 +216,9 @@ class Ui_Form(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.label_5 = QLabel(self.groupBox_3)
         self.label_5.setObjectName(u"label_5")
-        font2 = QFont()
-        font2.setPointSize(10)
-        self.label_5.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(10)
+        self.label_5.setFont(font3)
         self.label_5.setFrameShape(QFrame.NoFrame)
         self.label_5.setFrameShadow(QFrame.Raised)
 
@@ -212,7 +236,7 @@ class Ui_Form(object):
 
         self.label_9 = QLabel(self.groupBox_3)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font2)
+        self.label_9.setFont(font3)
         self.label_9.setFrameShape(QFrame.NoFrame)
         self.label_9.setFrameShadow(QFrame.Raised)
 
@@ -242,6 +266,7 @@ class Ui_Form(object):
 
         self.tabviewRecg = QTableView(self.groupBox_3)
         self.tabviewRecg.setObjectName(u"tabviewRecg")
+        self.tabviewRecg.setFont(font2)
 
         self.verticalLayout_9.addWidget(self.tabviewRecg)
 
@@ -289,12 +314,11 @@ class Ui_Form(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), QCoreApplication.translate("Form", u"Linear Regression Image", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Table. Linear Regression", None))
         self.groupBox_6.setTitle("")
-        self.pushButton.setText(QCoreApplication.translate("Form", u"Detect", None))
-        self.pushButton_4.setText(QCoreApplication.translate("Form", u"Linear Regression", None))
         self.pushButton_5.setText(QCoreApplication.translate("Form", u"Import Image", None))
-        self.pushButton_7.setText(QCoreApplication.translate("Form", u"Plot", None))
         self.pushButton_8.setText(QCoreApplication.translate("Form", u"Save", None))
-        self.pushButton_3.setText(QCoreApplication.translate("Form", u"photograph", None))
+        self.pushButton_4.setText(QCoreApplication.translate("Form", u"Linear Regression", None))
+        self.pushButton_7.setText(QCoreApplication.translate("Form", u"Plot", None))
+        self.pushButton.setText(QCoreApplication.translate("Form", u"Detect", None))
         self.groupBox_3.setTitle("")
         self.labelRecgImg.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("Form", u"Detection Image", None))
