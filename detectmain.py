@@ -55,18 +55,18 @@ class DetectMain(QWidget):
 
 
         # tableview for the linear img, the concentration and RGB are known, to get the chart
-        num = [1, 2, 3, 4, 5, 6, 7]
-        con = [1, 10, 30, 50, 80, 100, 120]
-        blue = [156, 146, 126, 99, 71, 55, 34]
-        green = [107, 102, 89, 68, 47, 34, 17]
-        red = [75, 71, 61, 46, 30, 22, 12]
+        num = [1, 2, 3, 4, 5, 6]
+        con = [1, 5, 10, 20, 30, 40]
+        green = [80.45, 75.42, 90.34, 102.69, 124.07, 146.41]
+        blue = [75.08, 70.14, 78.66, 90.30, 110.80, 132.41]
+        red = [80.62, 75.20, 90.34, 102.50, 125.26, 145.41]
         cols = 5
         con_rgb_list = []
         for i in range(len(con)):
             con_rgb_list.append(str(num[i]))
             con_rgb_list.append(str(con[i]))
-            con_rgb_list.append(str(blue[i]))
             con_rgb_list.append(str(green[i]))
+            con_rgb_list.append(str(blue[i]))
             con_rgb_list.append(str(red[i]))
         model = QStandardItemModel()
         model.setColumnCount(cols)
@@ -78,8 +78,8 @@ class DetectMain(QWidget):
 
         model.setHeaderData(0, Qt.Horizontal, "No.")
         model.setHeaderData(1, Qt.Horizontal, "Con.")
-        model.setHeaderData(2, Qt.Horizontal, "Blue")
-        model.setHeaderData(3, Qt.Horizontal, "Green")
+        model.setHeaderData(2, Qt.Horizontal, "Green")
+        model.setHeaderData(3, Qt.Horizontal, "Blue")
         model.setHeaderData(4, Qt.Horizontal, "Red")
 
         self.ui.tabviewOrig.setModel(model)
@@ -100,8 +100,8 @@ class DetectMain(QWidget):
                 'size': 13,
                 }
 
-        x = [1, 10, 30, 50, 80, 100, 120]
-        y = [156, 146, 126, 99, 71, 55, 34]
+        x = [1, 5, 10, 20, 30, 40]
+        y = [80.4523809523809, 75.4212250712251, 90.3362637362637, 102.6918881118880, 124.0684624017960, 146.4058149058150]
         slope, intercept, r, p, std_err = stats.linregress(x, y)
         R2 = pow(r, 2)
         def myfunc(x):
@@ -112,51 +112,52 @@ class DetectMain(QWidget):
 #        print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
-        rgb_B = [144, 109, 94, 49, 143, 111, 93, 50]
+        rgb_G = [73.91, 117.63, 136.00, 73.79, 123.42, 136.72]
         con = []
-        for item_B in rgb_B:
-            con_temp = (item_B - intercept)/slope
+        for item_G in rgb_G:
+            con_temp = (item_G - intercept)/slope
             con.append(con_temp)
+        print('con: ', con)
 
 #        plt.plot(x, y, 'k')
         plt.title('Linear Regression and DL-assisted HT-Detection', fontdict=font)
 
-        plt.text(60, 143, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
+        plt.text(0, 0, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
                 backgroundcolor='#069AF3', fontsize=13,
                 fontstyle='italic', fontfamily='times new roman',
                 color=(1, 1, 1, 1))
 #        plt.text(61, 143, r'$\cos(2 \pi t) \exp(-t)$', fontdict=font)
-        plt.xlabel('Concentration of Fe3+ (uM)', fontdict=font)
-        plt.ylabel('Blue Value', fontdict=font)
+        plt.xlabel('Concentration of Hg2+ (μM)', fontdict=font)
+        plt.ylabel('Green Value', fontdict=font)
 
 
 
         plt.scatter(x,y, color='#0343DF')
         plt.plot(x, mymodel, color='#069AF3')
-        plt.scatter(con, rgb_B, color='#ff7f0e')
+        plt.scatter(con, rgb_G, color='#ff7f0e')
         plt.legend(('experimental data', 'linear regression', 'detection result'),
-                   loc='lower left', shadow=True)
-        for x, y in zip(con, rgb_B):
+                   loc='lower right', shadow=True)
+        for x, y in zip(con, rgb_G):
             plt.text(x, y, '({:.1f},{:.1f})'.format(x,y),fontsize=7,rotation=30,color='#ff7f0e') #f'(x: {x}, y: {y})')
         plt.show()
 
 
 
         # tableview for the recognized img, the concentration and RGB are NOT known
-        num = [1, 2, 3, 4, 5, 6, 7, 8]
-        rgb_G = [94, 71, 61, 28, 96, 73, 61, 27]
-        rgb_R = [68, 49, 43, 19, 69, 52, 43, 19]
+        num = [1, 2, 3, 4, 5, 6]
+        rgb_B = [63.52, 105.45, 122.00, 70.45, 109.30, 119.29]
+        rgb_R = [76.19, 117.55, 135.00, 74.24, 122.49, 138.58]
         rgb_con_list = []
         cols = 5
-        for i in range(len(rgb_B)):
+        for i in range(len(rgb_G)):
             rgb_con_list.append(str(num[i]))
-            rgb_con_list.append(str(round(con[i],1)))
-            rgb_con_list.append(str(round(rgb_B[i],0)))
-            rgb_con_list.append(str(rgb_G[i]))
+            rgb_con_list.append(str(round(con[i],2)))
+            rgb_con_list.append(str(round(rgb_G[i],2)))
+            rgb_con_list.append(str(rgb_B[i]))
             rgb_con_list.append(str(rgb_R[i]))
         model = QStandardItemModel()
         model.setColumnCount(cols)
-        for row in range(len(rgb_B)):
+        for row in range(len(rgb_G)):
             for col in range(cols):
                 index = row*cols+col
                 item = QStandardItem(rgb_con_list[index])
@@ -164,8 +165,8 @@ class DetectMain(QWidget):
 
         model.setHeaderData(0, Qt.Horizontal, "No.")
         model.setHeaderData(1, Qt.Horizontal, "Con.")
-        model.setHeaderData(2, Qt.Horizontal, "Blue")
-        model.setHeaderData(3, Qt.Horizontal, "Green")
+        model.setHeaderData(2, Qt.Horizontal, "Green")
+        model.setHeaderData(3, Qt.Horizontal, "Blue")
         model.setHeaderData(4, Qt.Horizontal, "Red")
 
 
