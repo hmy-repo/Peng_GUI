@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'detectmain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -40,7 +40,7 @@ class Ui_Form(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.cameraMainlVLayout = QVBoxLayout()
         self.cameraMainlVLayout.setObjectName(u"cameraMainlVLayout")
-        self.cameraMainlVLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.cameraMainlVLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
 
         self.horizontalLayout_9.addLayout(self.cameraMainlVLayout)
 
@@ -54,7 +54,7 @@ class Ui_Form(object):
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setSpacing(3)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setSizeConstraint(QLayout.SetNoConstraint)
+        self.horizontalLayout_6.setSizeConstraint(QLayout.SizeConstraint.SetNoConstraint)
         self.tabWidget_2 = QTabWidget(self.groupBox_4)
         self.tabWidget_2.setObjectName(u"tabWidget_2")
         font = QFont()
@@ -67,7 +67,7 @@ class Ui_Form(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.labelOrigImg = QLabel(self.tab_4)
         self.labelOrigImg.setObjectName(u"labelOrigImg")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.labelOrigImg.sizePolicy().hasHeightForWidth())
@@ -101,8 +101,8 @@ class Ui_Form(object):
 
         self.horizontalLayout_6.addLayout(self.verticalLayout_8)
 
-        self.horizontalLayout_6.setStretch(0, 3)
-        self.horizontalLayout_6.setStretch(1, 1)
+        self.horizontalLayout_6.setStretch(0, 5)
+        self.horizontalLayout_6.setStretch(1, 2)
 
         self.horizontalLayout_7.addLayout(self.horizontalLayout_6)
 
@@ -124,7 +124,7 @@ class Ui_Form(object):
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
 
@@ -138,7 +138,7 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.pushButton_8, 1, 9, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer, 1, 2, 1, 1)
 
@@ -147,7 +147,7 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.pushButton_4, 1, 3, 1, 1)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_4, 1, 8, 1, 1)
 
@@ -156,11 +156,11 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.pushButton_7, 1, 5, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_2, 1, 4, 1, 1)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_3, 1, 6, 1, 1)
 
@@ -169,7 +169,7 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.pushButton, 1, 7, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_6, 1, 10, 1, 1)
 
@@ -195,8 +195,8 @@ class Ui_Form(object):
         self.tabWidget = QTabWidget(self.groupBox_3)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setFont(font)
-        self.tabWidget.setTabPosition(QTabWidget.North)
-        self.tabWidget.setTabShape(QTabWidget.Rounded)
+        self.tabWidget.setTabPosition(QTabWidget.TabPosition.North)
+        self.tabWidget.setTabShape(QTabWidget.TabShape.Rounded)
         self.tab_3 = QWidget()
         self.tab_3.setObjectName(u"tab_3")
         self.horizontalLayout_3 = QHBoxLayout(self.tab_3)
@@ -219,8 +219,8 @@ class Ui_Form(object):
         font3 = QFont()
         font3.setPointSize(10)
         self.label_5.setFont(font3)
-        self.label_5.setFrameShape(QFrame.NoFrame)
-        self.label_5.setFrameShadow(QFrame.Raised)
+        self.label_5.setFrameShape(QFrame.Shape.NoFrame)
+        self.label_5.setFrameShadow(QFrame.Shadow.Raised)
 
         self.horizontalLayout_2.addWidget(self.label_5)
 
@@ -228,24 +228,24 @@ class Ui_Form(object):
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setValue(100)
         self.progressBar.setTextVisible(False)
-        self.progressBar.setOrientation(Qt.Horizontal)
+        self.progressBar.setOrientation(Qt.Orientation.Horizontal)
         self.progressBar.setInvertedAppearance(False)
-        self.progressBar.setTextDirection(QProgressBar.BottomToTop)
+        self.progressBar.setTextDirection(QProgressBar.Direction.BottomToTop)
 
         self.horizontalLayout_2.addWidget(self.progressBar)
 
         self.label_9 = QLabel(self.groupBox_3)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setFont(font3)
-        self.label_9.setFrameShape(QFrame.NoFrame)
-        self.label_9.setFrameShadow(QFrame.Raised)
+        self.label_9.setFrameShape(QFrame.Shape.NoFrame)
+        self.label_9.setFrameShadow(QFrame.Shadow.Raised)
 
         self.horizontalLayout_2.addWidget(self.label_9)
 
         self.lcdNumber = QLCDNumber(self.groupBox_3)
         self.lcdNumber.setObjectName(u"lcdNumber")
         self.lcdNumber.setAcceptDrops(False)
-        self.lcdNumber.setFrameShape(QFrame.Panel)
+        self.lcdNumber.setFrameShape(QFrame.Shape.Panel)
         self.lcdNumber.setProperty("intValue", 335)
 
         self.horizontalLayout_2.addWidget(self.lcdNumber)
@@ -273,8 +273,8 @@ class Ui_Form(object):
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_9)
 
-        self.horizontalLayout_4.setStretch(0, 3)
-        self.horizontalLayout_4.setStretch(1, 1)
+        self.horizontalLayout_4.setStretch(0, 5)
+        self.horizontalLayout_4.setStretch(1, 2)
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_4)
 

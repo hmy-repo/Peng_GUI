@@ -112,7 +112,7 @@ class DetectMain(QWidget):
 #        print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
-        rgb_G = [73.91, 117.63, 136.00, 73.79, 123.42, 136.72]
+        rgb_G = [74.01, 117.48, 136.03, 73.70, 123.45, 136.86]
         con = []
         for item_G in rgb_G:
             con_temp = (item_G - intercept)/slope
@@ -145,8 +145,8 @@ class DetectMain(QWidget):
 
         # tableview for the recognized img, the concentration and RGB are NOT known
         num = [1, 2, 3, 4, 5, 6]
-        rgb_B = [63.52, 105.45, 122.00, 70.45, 109.30, 119.29]
-        rgb_R = [76.19, 117.55, 135.00, 74.24, 122.49, 138.58]
+        rgb_B = [63.50, 105.36, 122.03, 70.38, 109.34, 119.40]
+        rgb_R = [76.29, 117.37, 135.03, 74.15, 122.52, 138.62]
         rgb_con_list = []
         cols = 5
         for i in range(len(rgb_G)):
