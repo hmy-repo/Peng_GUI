@@ -246,7 +246,7 @@ class Ui_Form(object):
         self.lcdNumber.setObjectName(u"lcdNumber")
         self.lcdNumber.setAcceptDrops(False)
         self.lcdNumber.setFrameShape(QFrame.Shape.Panel)
-        self.lcdNumber.setProperty("intValue", 335)
+        self.lcdNumber.setProperty("intValue", 377)
 
         self.horizontalLayout_2.addWidget(self.lcdNumber)
 
@@ -314,9 +314,9 @@ class Ui_Form(object):
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), QCoreApplication.translate("Form", u"Linear Regression Image", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Table. Linear Regression", None))
         self.groupBox_6.setTitle("")
-        self.pushButton_5.setText(QCoreApplication.translate("Form", u"Import Image", None))
+        self.pushButton_5.setText(QCoreApplication.translate("Form", u"  Import Image  ", None))
         self.pushButton_8.setText(QCoreApplication.translate("Form", u"Save", None))
-        self.pushButton_4.setText(QCoreApplication.translate("Form", u"Linear Regression", None))
+        self.pushButton_4.setText(QCoreApplication.translate("Form", u"  Linear Regression  ", None))
         self.pushButton_7.setText(QCoreApplication.translate("Form", u"Plot", None))
         self.pushButton.setText(QCoreApplication.translate("Form", u"Detect", None))
         self.groupBox_3.setTitle("")

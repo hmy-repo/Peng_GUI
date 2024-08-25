@@ -120,25 +120,25 @@ class DetectMain(QWidget):
         print('con: ', con)
 
 #        plt.plot(x, y, 'k')
-        plt.title('Linear Regression and DL-assisted HT-Detection', fontdict=font)
+        plt.title('Linear Regression and ML-assisted HT-Detection', fontdict=font)
 
-        plt.text(0, 0, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
-                backgroundcolor='#069AF3', fontsize=13,
+        plt.text(5, 140, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
+                backgroundcolor='#81e68e', fontsize=13,
                 fontstyle='italic', fontfamily='times new roman',
-                color=(1, 1, 1, 1))
-#        plt.text(61, 143, r'$\cos(2 \pi t) \exp(-t)$', fontdict=font)
+                color=(0, 0, 0, 1)) # #069AF3
+        # plt.text(61, 143, r'$\cos(2 \pi t) \exp(-t)$', fontdict=font)
         plt.xlabel('Concentration of Hg2+ (μM)', fontdict=font)
         plt.ylabel('Green Value', fontdict=font)
 
 
 
-        plt.scatter(x,y, color='#0343DF')
-        plt.plot(x, mymodel, color='#069AF3')
+        plt.scatter(x,y, color='#07b553') #  #0343DF #0db838
+        plt.plot(x, mymodel, color='#81e68e') # #0db838 #069AF3
         plt.scatter(con, rgb_G, color='#ff7f0e')
         plt.legend(('experimental data', 'linear regression', 'detection result'),
                    loc='lower right', shadow=True)
         for x, y in zip(con, rgb_G):
-            plt.text(x, y, '({:.1f},{:.1f})'.format(x,y),fontsize=7,rotation=30,color='#ff7f0e') #f'(x: {x}, y: {y})')
+            plt.text(x, y, '({:.1f},{:.1f})'.format(x,y),fontsize=7,rotation=0,color='#ff7f0e') #f'(x: {x}, y: {y})')
         plt.show()
 
 
