@@ -55,11 +55,11 @@ class DetectMain(QWidget):
 
 
         # tableview for the linear img, the concentration and RGB are known, to get the chart
-        num = [1, 2, 3, 4, 5, 6]
-        con = [1, 5, 10, 20, 30, 40]
-        green = [80.45, 75.42, 90.34, 102.69, 124.07, 146.41]
-        blue = [75.08, 70.14, 78.66, 90.30, 110.80, 132.41]
-        red = [80.62, 75.20, 90.34, 102.50, 125.26, 145.41]
+        num = [1, 2, 3, 4, 5]
+        con = [1, 10, 20, 30, 40]
+        green = [79.48, 90.13, 102.62, 124.11, 146.29]
+        blue = [74.04, 78.43, 90.29, 110.84, 132.29]
+        red = [79.49, 90.13, 102.45, 125.30, 145.29]
         cols = 5
         con_rgb_list = []
         for i in range(len(con)):
@@ -100,8 +100,8 @@ class DetectMain(QWidget):
                 'size': 13,
                 }
 
-        x = [1, 5, 10, 20, 30, 40]
-        y = [80.4523809523809, 75.4212250712251, 90.3362637362637, 102.6918881118880, 124.0684624017960, 146.4058149058150]
+        x = [1, 10, 20, 30, 40]
+        y = [79.4798923817615, 90.1310552500655, 102.6154051172710, 124.1063063063060, 146.2869718309860]
         slope, intercept, r, p, std_err = stats.linregress(x, y)
         R2 = pow(r, 2)
         def myfunc(x):
@@ -112,7 +112,7 @@ class DetectMain(QWidget):
 #        print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
-        rgb_G = [74.01, 117.48, 136.03, 73.70, 123.45, 136.86]
+        rgb_G = [75.74, 120.51, 139.03, 75.73, 126.45, 139.87]
         con = []
         for item_G in rgb_G:
             con_temp = (item_G - intercept)/slope
@@ -132,21 +132,25 @@ class DetectMain(QWidget):
 
 
 
+        plt.plot(x, mymodel, color='#81e68e', linewidth=3) # #0db838 #069AF3
+
         plt.scatter(x,y, color='#07b553') #  #0343DF #0db838
-        plt.plot(x, mymodel, color='#81e68e') # #0db838 #069AF3
+
         plt.scatter(con, rgb_G, color='#ff7f0e')
+
         plt.legend(('experimental data', 'linear regression', 'detection result'),
                    loc='lower right', shadow=True)
         for x, y in zip(con, rgb_G):
             plt.text(x, y, '({:.1f},{:.1f})'.format(x,y),fontsize=7,rotation=0,color='#ff7f0e') #f'(x: {x}, y: {y})')
+
         plt.show()
 
 
 
         # tableview for the recognized img, the concentration and RGB are NOT known
         num = [1, 2, 3, 4, 5, 6]
-        rgb_B = [63.50, 105.36, 122.03, 70.38, 109.34, 119.40]
-        rgb_R = [76.29, 117.37, 135.03, 74.15, 122.52, 138.62]
+        rgb_B = [65.13, 108.38, 125.03, 72.40, 112.34, 122.40]
+        rgb_R = [77.99, 120.41, 138.03, 76.18, 125.52, 141.62]
         rgb_con_list = []
         cols = 5
         for i in range(len(rgb_G)):
