@@ -108,7 +108,7 @@ class DetectMain(QWidget):
             return slope*x+intercept
         mymodel = list(map(myfunc, x))
 
-        text = "y = {:.4f}*x+{:.2f}".format(slope, intercept)
+        text = "Y = {:.4f}*X+{:.2f}".format(slope, intercept)
 #        print('text=', text)
 #        print("y = {:.2f}*x+{:.2f}".format(slope, intercept))
 
@@ -120,29 +120,42 @@ class DetectMain(QWidget):
         print('con: ', con)
 
 #        plt.plot(x, y, 'k')
-        plt.title('Linear Regression and ML-assisted HT-Detection', fontdict=font)
+        plt.title('Linear Regression and ML-assisted HT-Detection', fontdict=font, fontsize=15)
 
-        plt.text(5, 140, "y = {:.4f} * x+{:.2f}  R2 = {:.4f}".format(slope, intercept, R2),
-                backgroundcolor='#81e68e', fontsize=13,
+        plt.text(4, 135, "Y = {:.4f} * X+{:.2f} ,  R$^2$ = {:.4f}".format(slope, intercept, R2),
+                backgroundcolor='#81e68e', fontsize=16,
                 fontstyle='italic', fontfamily='times new roman',
                 color=(0, 0, 0, 1)) # #069AF3
         # plt.text(61, 143, r'$\cos(2 \pi t) \exp(-t)$', fontdict=font)
-        plt.xlabel('Concentration of Hg2+ (μM)', fontdict=font)
-        plt.ylabel('Green Value', fontdict=font)
+        plt.xlabel('Concentration of Hg$^{2+}$ (μM)', fontdict=font, fontsize=13)
+        plt.ylabel('Green Value', fontdict=font, fontsize=13)
 
 
 
-        plt.plot(x, mymodel, color='#81e68e', linewidth=3) # #0db838 #069AF3
+        plt.scatter(x,y, color='#07b553', linewidths=4, zorder=1) #  #0343DF #0db838
+        plt.plot(x, mymodel, color='#81e68e', linewidth=3,linestyle='--', zorder=2) # #0db838 #069AF3
+        plt.scatter(con, rgb_G, color='#ff7f0e', linewidths=4, zorder=3)
 
-        plt.scatter(x,y, color='#07b553') #  #0343DF #0db838
 
-        plt.scatter(con, rgb_G, color='#ff7f0e')
+
 
         plt.legend(('experimental data', 'linear regression', 'detection result'),
                    loc='lower right', shadow=True)
-        for x, y in zip(con, rgb_G):
-            plt.text(x, y, '({:.1f},{:.1f})'.format(x,y),fontsize=7,rotation=0,color='#ff7f0e') #f'(x: {x}, y: {y})')
 
+        marker_color = '#ff7f0e'
+        marker_size = 10
+        plt.text(con[0]+1, rgb_G[0], '({:.2f},{:.2f})'.format(con[0], rgb_G[0]),fontsize=marker_size,rotation=0,color=marker_color)
+        plt.text(con[1]-1, rgb_G[1]-4, '({:.2f},{:.2f})'.format(con[1], rgb_G[1]),fontsize=marker_size,rotation=0,color=marker_color)
+        plt.text(con[2]-7.5, rgb_G[2]-0.5, '({:.2f},{:.2f})'.format(con[2], rgb_G[2]),fontsize=marker_size,rotation=0,color=marker_color)
+        plt.text(con[3]+1, rgb_G[3]-3, '({:.2f},{:.2f})'.format(con[3], rgb_G[3]),fontsize=marker_size,rotation=0,color=marker_color)
+        plt.text(con[4]+1, rgb_G[4]-1, '({:.2f},{:.2f})'.format(con[4], rgb_G[4]),fontsize=marker_size,rotation=0,color=marker_color)
+        plt.text(con[5]-5.5, rgb_G[5]+2.5, '({:.2f},{:.2f})'.format(con[5], rgb_G[5]),fontsize=marker_size,rotation=0,color=marker_color)
+
+
+        # for x, y in zip(con[0:3], rgb_G[0:3]):
+        #     plt.text(x+1, y, '({:.2f},{:.2f})'.format(x,y),fontsize=10,rotation=0,color='#ff7f0e') #f'(x: {x}, y: {y})')
+        # for x, y in zip(con[3:6], rgb_G[3:6]):
+        #     plt.text(x+1, y, '({:.2f},{:.2f})'.format(x,y),fontsize=10,rotation=0,color='#ff7f0e') #f'(x: {x}, y: {y})')
         plt.show()
 
 
