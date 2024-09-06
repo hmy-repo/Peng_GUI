@@ -38,24 +38,11 @@ class Ui_Form(object):
         self.cameraMainGroupBox.setObjectName(u"cameraMainGroupBox")
         self.horizontalLayout_9 = QHBoxLayout(self.cameraMainGroupBox)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.cameraMainlVLayout = QVBoxLayout()
-        self.cameraMainlVLayout.setObjectName(u"cameraMainlVLayout")
-        self.cameraMainlVLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
-
-        self.horizontalLayout_9.addLayout(self.cameraMainlVLayout)
-
-
-        self.gridLayout_3.addWidget(self.cameraMainGroupBox, 0, 0, 1, 1)
-
-        self.groupBox_4 = QGroupBox(self.detectmainWidget)
-        self.groupBox_4.setObjectName(u"groupBox_4")
-        self.horizontalLayout_7 = QHBoxLayout(self.groupBox_4)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setSpacing(3)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setSizeConstraint(QLayout.SizeConstraint.SetNoConstraint)
-        self.tabWidget_2 = QTabWidget(self.groupBox_4)
+        self.tabWidget_2 = QTabWidget(self.cameraMainGroupBox)
         self.tabWidget_2.setObjectName(u"tabWidget_2")
         font = QFont()
         font.setPointSize(10)
@@ -81,7 +68,7 @@ class Ui_Form(object):
 
         self.verticalLayout_8 = QVBoxLayout()
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.label_2 = QLabel(self.groupBox_4)
+        self.label_2 = QLabel(self.cameraMainGroupBox)
         self.label_2.setObjectName(u"label_2")
         font1 = QFont()
         font1.setPointSize(9)
@@ -89,7 +76,7 @@ class Ui_Form(object):
 
         self.verticalLayout_8.addWidget(self.label_2)
 
-        self.tabviewOrig = QTableView(self.groupBox_4)
+        self.tabviewOrig = QTableView(self.cameraMainGroupBox)
         self.tabviewOrig.setObjectName(u"tabviewOrig")
         font2 = QFont()
         font2.setPointSize(11)
@@ -104,18 +91,18 @@ class Ui_Form(object):
         self.horizontalLayout_6.setStretch(0, 5)
         self.horizontalLayout_6.setStretch(1, 2)
 
-        self.horizontalLayout_7.addLayout(self.horizontalLayout_6)
+        self.horizontalLayout_9.addLayout(self.horizontalLayout_6)
 
 
-        self.gridLayout_3.addWidget(self.groupBox_4, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.cameraMainGroupBox, 0, 0, 1, 1)
 
-        self.groupBox_6 = QGroupBox(self.detectmainWidget)
-        self.groupBox_6.setObjectName(u"groupBox_6")
-        self.horizontalLayout_10 = QHBoxLayout(self.groupBox_6)
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.groupBox_4 = QGroupBox(self.detectmainWidget)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.horizontalLayout_7 = QHBoxLayout(self.groupBox_4)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.verticalLayout_12 = QVBoxLayout()
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.widgetChart = QWidget(self.groupBox_6)
+        self.widgetChart = QWidget(self.groupBox_4)
         self.widgetChart.setObjectName(u"widgetChart")
         sizePolicy.setHeightForWidth(self.widgetChart.sizePolicy().hasHeightForWidth())
         self.widgetChart.setSizePolicy(sizePolicy)
@@ -128,12 +115,12 @@ class Ui_Form(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
 
-        self.pushButton_5 = QPushButton(self.groupBox_6)
+        self.pushButton_5 = QPushButton(self.groupBox_4)
         self.pushButton_5.setObjectName(u"pushButton_5")
 
         self.gridLayout.addWidget(self.pushButton_5, 1, 1, 1, 1)
 
-        self.pushButton_8 = QPushButton(self.groupBox_6)
+        self.pushButton_8 = QPushButton(self.groupBox_4)
         self.pushButton_8.setObjectName(u"pushButton_8")
 
         self.gridLayout.addWidget(self.pushButton_8, 1, 9, 1, 1)
@@ -142,7 +129,7 @@ class Ui_Form(object):
 
         self.gridLayout.addItem(self.horizontalSpacer, 1, 2, 1, 1)
 
-        self.pushButton_4 = QPushButton(self.groupBox_6)
+        self.pushButton_4 = QPushButton(self.groupBox_4)
         self.pushButton_4.setObjectName(u"pushButton_4")
 
         self.gridLayout.addWidget(self.pushButton_4, 1, 3, 1, 1)
@@ -151,7 +138,7 @@ class Ui_Form(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_4, 1, 8, 1, 1)
 
-        self.pushButton_7 = QPushButton(self.groupBox_6)
+        self.pushButton_7 = QPushButton(self.groupBox_4)
         self.pushButton_7.setObjectName(u"pushButton_7")
 
         self.gridLayout.addWidget(self.pushButton_7, 1, 5, 1, 1)
@@ -164,7 +151,7 @@ class Ui_Form(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_3, 1, 6, 1, 1)
 
-        self.pushButton = QPushButton(self.groupBox_6)
+        self.pushButton = QPushButton(self.groupBox_4)
         self.pushButton.setObjectName(u"pushButton")
 
         self.gridLayout.addWidget(self.pushButton, 1, 7, 1, 1)
@@ -178,7 +165,20 @@ class Ui_Form(object):
 
         self.verticalLayout_12.setStretch(0, 5)
 
-        self.horizontalLayout_10.addLayout(self.verticalLayout_12)
+        self.horizontalLayout_7.addLayout(self.verticalLayout_12)
+
+
+        self.gridLayout_3.addWidget(self.groupBox_4, 0, 1, 1, 1)
+
+        self.groupBox_6 = QGroupBox(self.detectmainWidget)
+        self.groupBox_6.setObjectName(u"groupBox_6")
+        self.horizontalLayout_10 = QHBoxLayout(self.groupBox_6)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.cameraMainlVLayout = QVBoxLayout()
+        self.cameraMainlVLayout.setObjectName(u"cameraMainlVLayout")
+        self.cameraMainlVLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
+
+        self.horizontalLayout_10.addLayout(self.cameraMainlVLayout)
 
 
         self.gridLayout_3.addWidget(self.groupBox_6, 1, 0, 1, 1)
@@ -288,11 +288,6 @@ class Ui_Form(object):
 
         self.verticalLayout_13.addLayout(self.gridLayout_3)
 
-        self.label_3 = QLabel(self.detectmainWidget)
-        self.label_3.setObjectName(u"label_3")
-
-        self.verticalLayout_13.addWidget(self.label_3)
-
 
         self.verticalLayout_2.addWidget(self.detectmainWidget)
 
@@ -309,22 +304,21 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.cameraMainGroupBox.setTitle("")
-        self.groupBox_4.setTitle("")
         self.labelOrigImg.setText("")
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), QCoreApplication.translate("Form", u"Linear Regression Image", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Table. Linear Regression", None))
-        self.groupBox_6.setTitle("")
+        self.groupBox_4.setTitle("")
         self.pushButton_5.setText(QCoreApplication.translate("Form", u"  Import Image  ", None))
         self.pushButton_8.setText(QCoreApplication.translate("Form", u"Save", None))
         self.pushButton_4.setText(QCoreApplication.translate("Form", u"  Linear Regression  ", None))
         self.pushButton_7.setText(QCoreApplication.translate("Form", u"Plot", None))
         self.pushButton.setText(QCoreApplication.translate("Form", u"Detect", None))
+        self.groupBox_6.setTitle("")
         self.groupBox_3.setTitle("")
         self.labelRecgImg.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("Form", u"Detection Image", None))
         self.label_5.setText(QCoreApplication.translate("Form", u"Progress:", None))
         self.label_9.setText(QCoreApplication.translate("Form", u"Period:", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"Table. Detection", None))
-        self.label_3.setText("")
     # retranslateUi
 
